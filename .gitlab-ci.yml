@@ -1,0 +1,24 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - ./gradlew jar
+  tags:
+    - linux
+    - java
+
+deploy:
+  stage: deploy
+  script:
+    - ./gradlew publish
+  tags:
+    - linux
+    - java
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  only:
+    - tags
