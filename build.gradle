@@ -67,7 +67,7 @@ publishing {
 publishing {
     repositories {
         maven {
-            org.gradle.api.credentials.Credentials {
+            credentials {
                 username System.getenv("MAVEN_USER")
                 password System.getenv("MAVEN_PASSWORD")
             }
